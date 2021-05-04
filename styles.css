@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: rgb(169, 169, 187);
+}
+.container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.screen {
+  border: 1px solid black;
+  height: 100px;
+  text-align: right;
+  line-height: 100px;
+  padding: 0 10px;
+}
+.clear {
+  justify-content: flex-end;
+}
+button {
+  width: 25%;
+  height: 100px;
+}
