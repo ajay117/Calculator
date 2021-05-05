@@ -5,24 +5,30 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  background-color: rgb(169, 169, 187);
+  background-color: rgb(255, 255, 255);
+  font-size: 30px;
 }
+
 .container {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
 .screen {
-  border: 1px solid black;
   height: 100px;
   text-align: right;
   line-height: 100px;
   padding: 0 10px;
+  background-color: #c3d4c6;
 }
 .clear {
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 button {
   width: 25%;
   height: 100px;
+  font-size: 20px;
+  background-color: #3c21b11c;
+  border: none;
+  border: 1px solid black;
 }

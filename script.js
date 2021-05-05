@@ -14,7 +14,7 @@ let action = '';
 //Shows '0' in calculator screen when program starts..
 displayScreen.textContent = '0';
 numButtons.forEach(btn => {
-    btn.addEventListener('click', getNumbers);    
+    btn.addEventListener('click', getNumbers); 
 });
 actionButtons.forEach(btn => {
     btn.addEventListener('click', getAction);
@@ -88,7 +88,12 @@ function clearScreen() {
 }
 function removeCharacterPerClick() {
     let numberInScreen =  displayScreen.textContent;
-    displayScreen.textContent =  numberInScreen.slice(0, numberInScreen.length -1);
+    if(numberInScreen.length > 1) {
+        displayScreen.textContent =  numberInScreen.slice(0, numberInScreen.length -1);
+    } else {
+        displayScreen.textContent =  '0';
+    }
+    
     numString1 = Number(displayScreen.textContent);
 }
 
