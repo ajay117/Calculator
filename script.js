@@ -6,20 +6,22 @@ let backspace = document.querySelector('.clear-backspace');
 let displayNumber
 let numString1 = '';
 let numString2 = '';
-// let num1 = 0;
-// let num2 = 0;
+let num2;
+let num1;
 let isClicked = false;
 let times = 0;
 
 numButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
-        if(!isClicked) {
-            numString1 += e.target.textContent;
-            displayScreen.textContent = numString1;
-        } else {
-            numString2 += e.target.textContent;
-            displayScreen.textContent = numString2;
-        }
+         if(isClicked) {
+             if(!numString2) {
+                 displayScreen.textContent = '';
+             }
+             displayScreen.textContent += e.target.textContent;
+             numString2 = Number(displayScreen.textContent);             
+            } else {
+                displayScreen.textContent += e.target.textContent;
+            }
     });
     
 });
@@ -27,14 +29,15 @@ numButtons.forEach(btn => {
 
 actionButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
-        isClicked = true;
-        if(numString1 && numString2) {
-            if(e.target.textContent === '+') {
-                numString1 = add(Number(numString1), Number(numString2));
-                displayScreen.textContent = numString1;
-                numString2 = '';
-            }
+        if(!isClicked) {
+            numString1 = Number(displayScreen.textContent);
+            isClicked = true;
         }
+        if(numString1 && numString2 && isClicked) {
+            numString1 = add(numString1, numString2);
+            numString2 = 0;
+            displayScreen.textContent = numString1;
+        }        
     });
 });
 
@@ -45,7 +48,15 @@ clearButton.addEventListener('click', () => {
     displayScreen.textContent = '';    
     isClicked = false;
 });
+
+backspace.addEventListener('click', (e) => {
+    let numberInScreen =  displayScreen.textContent;
+    displayScreen.textContent =  numberInScreen.slice(0, numberInScreen.length -1);
+    numString1 = Number(displayScreen.textContent);
+});
     
+
+//Functions...
 function add(...num) {
     let total = 0;
     num.forEach(item => {
