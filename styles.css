@@ -22,7 +22,9 @@ body {
   background-color: #c3d4c6;
 }
 .clear {
+  display: flex;
   justify-content: space-between;
+  padding: 7px 15px;
 }
 button {
   width: 25%;
@@ -31,4 +33,23 @@ button {
   background-color: #3c21b11c;
   border: none;
   border: 1px solid black;
+}
+button:active {
+  font-size: 19px;
+}
+
+@media screen and (min-width: 600px) {
+  .calculator {
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid black;
+  }
+  button {
+    width: 25%;
+    height: 80px;
+    font-size: 20px;
+    background-color: #3c21b11c;
+    border: none;
+    border: 1px solid black;
+  }
 }
